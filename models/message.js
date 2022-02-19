@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// import Mongoose  from "mongoose";
+// import Schema from "mongoose";
+import mongoose from 'mongoose'
 
-const messageSchema = new Schema(
+const Message = new mongoose.Schema(
   {
     bot_identifier: {
       type: String,
@@ -14,5 +16,4 @@ const messageSchema = new Schema(
   },
   { timestamps: true }
 );
-
-module.exports = mongoose.model("Message", messageSchema);
+module.exports = mongoose.model("Message", Message);
