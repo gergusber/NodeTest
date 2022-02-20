@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start-server": "node app.js",
+    "start:dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,6 @@
     "express-validator": "^6.14.0",
     "mongodb": "^4.3.1",
     "mongoose": "^6.2.1",
-    "node-fetch": "^3.2.0"
+    "node-fetch": "^2.6.7"
   }
 }

@@ -40,7 +40,7 @@ mongoose
     { useNewUrlParser: true }
   )
   .then((res) => {
-    app.listen(8080);
+    app.listen(3004);
   })
   .catch((err) => {
     console.log(err);
