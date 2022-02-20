@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 
 const verify = async (data) => {
   try {
+    console.log(data)
     const url = 'https://chat.ultimate.ai/api/intents';
     const options = {
       method: 'POST',
@@ -17,13 +18,6 @@ const verify = async (data) => {
     const { status } = dataFromAPI;
     if (status !== 200) {
       return null;
-      // return {
-      //   statusCode: 400,
-      //   body: JSON.stringify({
-      //     error: 'BadRequest',
-      //     message: 'Invalid data'
-      //   })
-      // };
     }
     const retorno = await dataFromAPI.json();
     return retorno;
