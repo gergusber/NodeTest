@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const chatRouter = require('./routes/chat');
 const { get404 } = require("./controllers/error");
-
+const Message = require('./models/message')
 
 app.use(express.json());
 app.use(
@@ -19,10 +19,19 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(async (req, res, next) => {
+  let defaultMessage = await Message.findOne({ text: 'Could not give the correct answer' });
+  if (!defaultMessage) {
+    defaultMessage = new Message({ text: 'Could not give the correct answer' });
+    console.log('creamos el couldNotGvieCorrectANsw')
+    await defaultMessage.save();
+  }
+  
+  next();
+})
+
 app.use("/chat", chatRouter);
-
-// app.use(get404);
-
+app.use(get404);
 app.use((err, req, res, next) => {
   console.log(err);
   const status = err.statusCode || 500;
