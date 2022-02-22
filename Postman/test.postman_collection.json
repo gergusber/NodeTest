@@ -1,0 +1,87 @@
+{
+	"variables": [],
+	"info": {
+		"name": "test",
+		"_postman_id": "f73a95a9-ad8f-042d-a395-fc3024570967",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test",
+			"description": "",
+			"item": [
+				{
+					"name": "POST response from db",
+					"request": {
+						"url": "http://localhost:3004/chat",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bot_identifier\":\"5f74865056d7bb000fcd39ff\",\n\t\"message\": \"tutuca\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://chat.ultimate.ai/api/intents",
+					"request": {
+						"url": "https://chat.ultimate.ai/api/intents",
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "825765d4-7f8d-4d83-bb03-9d45ac9c27c0",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"botId\": \"5f74865056d7bb000fcd39ff\",\n  \"message\": \"Hello\"\n}"
+						},
+						"description": "Generated from a curl request: \ncurl -X 'POST' \\\n  'https://chat.ultimate.ai/api/intents' \\\n  -H 'accept: application/json' \\\n  -H 'authorization: 825765d4-7f8d-4d83-bb03-9d45ac9c27c0' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \\\"botId\\\": \\\"5f74865056d7bb000fcd39ff\\\",\n  \\\"message\\\": \\\"thank you\\\"\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "POST chat/addReply ",
+					"request": {
+						"url": "http://localhost:3004/chat/addReply",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aintent\":\"6214977dac613bfdc59c2e5a\",\n\t\"message\": \"response\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -66,7 +66,7 @@ exports.postMessage = async (req, res, next) => {
             newIntent.messages.push(messageSaved._id);
             await newIntent.save();
             const mess = await Message.findById(newIntent.reply._id);
-            
+
             return res.status(200).json({
                 message: mess.text,
             });
@@ -81,7 +81,7 @@ exports.postMessage = async (req, res, next) => {
 };
 
 
-exports.postAddMensage =async(req,res,next) =>{
+exports.postAddMensage = async (req, res, next) => {
     const { intent, message } = req.body;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -90,7 +90,7 @@ exports.postAddMensage =async(req,res,next) =>{
         throw error;
     }
 
-    try{
+    try {
         let messageSaved = await Message.findOne({ text: message });
         if (!messageSaved) {
             messageSaved = new Message({ text: message });
@@ -99,7 +99,7 @@ exports.postAddMensage =async(req,res,next) =>{
 
         console.log(messageSaved)
         let intentToAddMessage = await Intent.findById(intent)
-        if(!intentToAddMessage){
+        if (!intentToAddMessage) {
             return res.status(404).json({
                 message: 'Intent not found'
             });
@@ -111,7 +111,7 @@ exports.postAddMensage =async(req,res,next) =>{
             message: messageSaved.text,
         });
     }
-    catch(err){
+    catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
         }
